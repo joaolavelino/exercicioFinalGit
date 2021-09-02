@@ -1,0 +1,44 @@
+-- TRABALHANDO COM BRANCHES --
+
+As branches são, literalmente, ramificações do projeto dentro do GIT, podemos criá-las à medida que queremos editar o projeto sem afetar a versão que está disponível para toda a equipe. 
+Se estamos trabalhando sozinhos, é bom usar as branches para que não comprometamos a versão original do código, para que possamos em uma determinada eventualidade, descartar toda esta alteração e ter sempre em mãos o código original.
+
+A branch padrão é a MASTER
+
+1) Ver quais são as branches disponíveis:
+    // git branch //
+
+2) Criar uma nova branch:
+    // git branch <nome> //
+
+3) Ir para uma branch:
+    // git checkout <nome> //
+
+---> 2 e 3) Para criar uma branch e navegar para ela direto: // git checkout -b <nome> //
+
+------- Podemos editar o projeto sem afetar a branch MASTER -------
+
+
+ -- TERMINADO O DESENVOLVIMENTO -> TRAZER AS ALTERAÇÕES PARA A BRANCH MASTER --
+ Assim elas estarão disponíveis para a equipe 
+
+ESTANDO NA BRANCH MASTER:
+
+MODO 1) MERGE: Ele cria um commit de merge e traz as alterações finais do branch para a MASTER
+    // git merge <branch que será trazida para a master> // enter para confirmar
+
+MODO 2) REBASE: Ele traz todos os commits feitos dentro do branch para a master. De forma a trazer o histórico desse branch. seria um modo de unificar os branches:
+    // git rebase <branch a ser trazido para a master>
+
+
+----- IMPORTANTE - atualizar o repositório remoto depois de fazer o Merge/Rebase -----
+    // git push <repositório remoto> <master>
+
+
+----- é possível subir as branches para o repositório remoto, caso queira disponibilizá-las durante o desenvolvimento. É só mudar o nome da branch no final do comando // git push //
+----- No git hub é possível alternar entre as branches
+
+
+
+
+

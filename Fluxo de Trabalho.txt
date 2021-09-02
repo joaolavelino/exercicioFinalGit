@@ -40,3 +40,24 @@
 
 __________________________________________________________________________________________________________________________
 
+
+- entrando em um projeto já em desenvolvimento, com um repositório remoto já existente:
+
+1) Clonar o repositório remoto - isso cria um repositório local já com os arquivos que estão disponíveis no repositório remoto:
+    // git clone <endereço url> <pasta de destino>
+        -> pasta de destino: Cria uma pasta dentro diretório de onde lançamos o comando. Devemos navegar para dentro dela (ou usar novamente o bash nela) para pode trabalhar com o repositório.
+
+2) abrir o BASH na pasta criada.
+
+3) linkar o repositório remoto:
+    // git remote <nome> <endereço url>
+
+4) Fluxo de trabalho normal com os comandos:
+    //git add
+    //git commit
+    //git restore
+    //git git push
+    //git pull
+
+
+__________________________________________________________________________________________________________________________
