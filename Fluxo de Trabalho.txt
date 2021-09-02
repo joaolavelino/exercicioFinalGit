@@ -1,0 +1,42 @@
+-- FLUXO DE TRABALHO USANDO GIT --
+
+- INICIANDO UM PROJETO DO ZERO -
+
+1) Abrir o GIT BASH na pasta raiz do projeto.
+
+2) Utilizar o comando // git init // para iniciar um repositório local nesta pasta;
+
+3) Para deixar os arquivos prontos para serem enviados para o repositório git (stage), utilizar o comando:
+    // git add <nome do arquivo> // para "stage" um arquivo apenas
+    // git add . // para "stage" todos os arquivos 
+
+3) Se quiser ver os arquivos que estão "staged", ou ver opções: // git status //
+
+4) Para enviar os arquivos para o repositório (commit):
+    // git commit -m "mensagem" // essa mensagem deve descrever resumidamente o que foi alterado no projeto
+    ***** jamais devemos commitar um código que não funciona *****
+
+
+*** Os arquivos estão agora no REPOSITÓRIO LOCAL ***
+
+
+5) Adicionar um repositório remoto - se já houver um ( se não houver, dá pra criar um no Github, ou similares)
+    // git remote add <repositorio> <endereço url> //
+        -> repositório: é um nome que designamos para o repositório - para referenciarmos depois - padrão: origin
+        -> endereço url: só copiar do Github
+
+6) Para enviar os arquivos do nosso repositório local para o repositório remoto:
+    // git push -u <repositório> <branch> //
+        -> -u: torna o repositório indicado como destino padrão. Para trocar é só usar o -u novamente, indicando um novo repositório.
+
+
+*** Os arquivos já estão no REPOSITÓRIO REMOTO, disponíveis para toda a equipe ***
+É importante comunicar à equipe que foram enviadas alterações no projeto para que todos possam puxar para seus repositórios locais a versão atualizada do projeto.
+
+
+7) Para puxar as atualizações do repositório remoto para o local: 
+    // git pull <repositório> <branch>
+
+
+__________________________________________________________________________________________________________________________
+
