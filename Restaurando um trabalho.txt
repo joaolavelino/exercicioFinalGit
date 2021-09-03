@@ -14,3 +14,14 @@ Podemos voltar para:
 
     ao utilizar o git restore, as alterações serão desfeitas e o projeto voltará ao estado que está no repositório local, mesmo que o arquivo já tenha sido salvo com as alterações.
 
+--- O estado enviado em algum commit específico ---
+
+1) Para voltar ao ponto que estava em um commit específico é preciso saber o HASH dele. Para isso é preciso usar o comando //git log// paraa poder ver a lista de commits.
+    - se houverem muitos logs, é mais fácil usar a opção Oneline // git log --oneline //
+    - a HASH são os 6 primeiros dígitos do commit (utilizando o Oneline, só vão aparecer os 6 dígitos)
+
+2) Para voltar a esse ponto é necessário usar o comando // git checkout <HASH> //
+
+3) Este estado é temporário. Se quiser realmente voltar a programar a partir desse ponto é preciso criar uma branch a partir daí // git checkout -b <nome da branch> // para pode fazer o MERGE ou o REBASE depois na Master.
+
+4) Se quiser retornar ao estado atual é só voltar para a master // git checkout master //
