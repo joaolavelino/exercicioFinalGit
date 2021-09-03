@@ -1,0 +1,16 @@
+- RESTAURANDO UM TRABALHO -
+
+Ao fazer uma edição no código e não quiser manter, é possível restaurar o arquivo utilizando o git.
+
+Podemos voltar para:
+
+--- O estado do projeto que está no repositório local ---
+
+1) Após fazer uma alteração no projeto, podemos abrir a opção // git status //
+
+2) Vão aparecer as seguintes opções:
+    - adicionar o trabalho com o // git add //
+    - descartar as alterações com o // git restore //
+
+    ao utilizar o git restore, as alterações serão desfeitas e o projeto voltará ao estado que está no repositório local, mesmo que o arquivo já tenha sido salvo com as alterações.
+
