@@ -25,3 +25,4 @@ Podemos voltar para:
 3) Este estado é temporário. Se quiser realmente voltar a programar a partir desse ponto é preciso criar uma branch a partir daí // git checkout -b <nome da branch> // para pode fazer o MERGE ou o REBASE depois na Master.
 
 4) Se quiser retornar ao estado atual é só voltar para a master // git checkout master //
+

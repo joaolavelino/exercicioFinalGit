@@ -1,0 +1,129 @@
+COMANDOS GIT
+
+ - CD - para identificar a pasta a trabalhar... porém é só abrir a pasta no windows explorer, clicar com botão direito e "bash here"
+    CD .. - Sobe uma pasta
+ - LS - Listar arquivos
+ - GIT INIT - Para iniciar um repositorio na pasta
+    - git init --bare : cria um repositório puro, só conterá alterações , não uma cópia física
+ - GIT STATUS - Para mostrar o status do repositório
+ - GIT ADD + nome do arquivo = adicionar o arquivo à lista de arquivos monitorados pelo GIT
+ - GIT ADD + . = adicionar TODOS OS ARQUIVOS à lista de arquivos monitorados pelo GIT
+
+ - GIT COMMIT -M "insira aqui uma msg" - faz o commit e anexa a ele uma CURTA mensagem para a equipe delineando o que foi alterado
+
+ - GIT LOG - Histórico de commits do repositorio
+ - GIT LOG --ONELINE - Histórico resumido, uma linha por commit
+ - GIT LOG -P = histórico detalhado, mostrando o que foi alterado
+ - GIT LOG --graph = Mostrar gráfico dos branches.
+    ***** Sair do LoG - "Q"
+
+  - SITE COM DETALHES PARA OS COMANDOS DE LOG - https://devhints.io/git-log
+
+ - Para o git ignorar um arquivo:
+   - Dentro da pasta - CRIAR ARQUIVO .gitignone;
+   - Dentro do arquivo - colocar linha  a linha os nomes dos arquivos para ignorar
+        - Se quiser ignorar pastas inteiras é só colocar o nome da pasta e barra pra direita, por ex.: img/
+   - fazer o commit delineando
+
+QUANDO FAZER O COMMIT - quando houver um passo significativo concluído
+****JAMAIS COMMITAR UM CÓDIGO QUE NÃO FUNCIONA****
+
+
+ ---------- AULA 2 ----------
+
+  - mkdir "nome da pasta" - cria uma pasta com esse diretorio (make directory)
+  - "nome da pasta"/  - entra na pasta
+
+  - GIT REMOTE = Lista os repositórios remotos ligados ao repositorio no qual estamos
+  - GIT REMOTE ADD "nome do repositorio" "endereço - pode ser pasta ou URL" - Liga o repositorio a um repositório remoto 
+  - GIT REMOTE -V = mostra o endereço dos repositórios remotos
+
+  - GIT CLONE "endereço" "nome da pasta" - Traz pela primeira vez o repositório remoto para dentro de uma pasta local - será criada uma pasta com o nome colocado - se não houver nome, será criada uma pasta com o nome da pasta onde está o repositório remoto
+
+ GIT INIT --BARE = Esse repositório BARE não conterá os arquivos em si - não terá a working tree - haverá apenas as atualizações nos arquivos, então esse repositório servirá para os outros membros da equipe sincronizar seus trabalhos. Isso poupa armazenamento.
+
+ --------- AULA 3 ----------
+
+  - GIT PUSH "destino" "branch" - envia dados do "Branch" em que estamos  trabalhando para o "destino", o repositório remoto.
+         - git push -u "destino" "branch" - o "-u" torna esses destino/branch padrões, então você precisa apenas digitar "git push" nas próximas vezes que for enviar um arquivo pro repositório remoto
+  - GIT REMOTE RENAME "nome original" "nome novo" - renomear um repositório remoto - quando foi feito o clone do repositorio, ele veio com o nome de ORIGIN, então vamos mudar para "local" para podermos estar ambos com o mesmo nome
+  - GIT PULL "origem" "branch" - puxa os dados do repositório de "origem" , dentro do "branch" que estamos trabalhando.
+
+  FLUXO DE TRABALHO -
+    
+    **SE QUISERMOS COMPARTILHAR UM PROJETO QUE ESTAMOS FAZENDO VIA GIT
+        CRIAR UM REPOSITÓRIO - GIT INIT
+        JOGAR OS ARQUIVOS NESSE REPOSITÓRIO  - GIT ADD "arquivos" ou GIT ADD . > GIT COMMIT -M "msg"
+
+        CRIAR UM REPOSITÓRIO REMOTO  (SE NECESSÁRIO) - GIT INIT --BARE
+
+        LIGAR REPOSITÓRIO REMOTO AO NOSSO REPOSITÓRIO - GIR REMOTE ADD "NOME" "LOCAL (pode ser pasta ou URL)"
+
+    
+    **SE ESTIVERMOS COMEÇANDO A TRABALHAR COM UM PROJETO QUE JÁ ESTÁ EM UM REPOSITÓRIO
+        CLONAR O REPOSITÓRIO REMOTO DENTRO DE UMA PASTA NO SEU COMPUTADOR - GIT CLONE "endereço do servidor remoto" "nome da pasta destino"
+        LIGAR O REPOSITÓRIO REMOTO À 
+
+    ** AO FAZER ALTERAÇÕES EM ALGUM ARQUIVO:
+        1) ADICIONAR ESSE ARQUIVO NA LISTA PARA COMMITAR - GIT ADD "ARQUIVO" ou GIT ADD .
+        2) COMMITAR O ARQUIVO - GIT COMMIT -M "mensagem"
+        3) MANDAR OS ARQUIVOS DO REPOSITÓRIO PARA O REPOSITÓRIO REMOTO - git push "destino" "branch"
+            
+
+    ** PARA TRAZER AS ALTERAÇÕES FEITAS POR OUTROS MEMBROS DA EQUIPE
+        1) PUXAR AS INFOS DO REPOSITÓRIO REMOTO - git pull "nome do repositório remoto" "branch"
+    
+
+--------AULA 4 -------- BRANCHES -------
+
+  - GIT BRANCH = mostra os branches do projeto
+  - GIT BRANCH "nome do branch" = adiciona um branch
+  - GIT CHECKOUT "nome do branch" = mudar para o branch escolhido
+
+  - GIT CHECKOUT -B "nome do branch" = cria um branch e já faz o checkout pra ele
+  
+    ** COMO FAZER PARA MANDAR O PROJETO DE UMA BRANCH PRA OUTRA
+      - estando na master: 
+        1) MERGE - Ele cria um commit de merge e traz as alterações do branch para a master
+        GIT MERGE "branch que queremos jutar à master" - :X Enter para confirmar
+
+        2) REBASE - Ele traz os commits do branch  para a master - deixando os commits da master feitos após a criação do branch pro final
+        GIT REBASE "branch"
+            isso unifica os branches.
+
+       3) ATUALIZAR NO REPOSITÓRIO REMOTO - FAZER O GIT PUSH - e avisar galera pra fazer um PULL
+
+       ***** QUANDO INICIAR O TRABALHO EM ALGUM PROJETO, FAZER UM PULL PRA GARANTIR QUE VOCÊ TEM OS ARQUIVOS ATUALIZADOS *****
+
+
+-------- AULA 5 - Manipulando as versões ---------
+
+Se fizermos uma série de alterações no(s) arquivo(s), e por algum motivo precisamos voltar para o modo em que estava antes destas alterações, podemos usar o git. Ele vai desfazer as alterações em todos os arquivos, e voltar para a última versão que estava no repositório.
+
+    Ao usar o GIT STATUS, vemos a opção de "GIT RESTORE "nome do arquivo" para restaurar. ou posso colocar "GIT RESTORE ." para restaurar todos os arquivos para a versão que está no repositório 
+    Se eu quiser fazer isso em um arquivo é GIT RESTORE -- "nome do arquivo"
+
+Se o arquivo que quero restaurar ja está adicionado (staged) para o commit (se eu ja usei o GIT ADD), é necessário primeiro fazer o UNSTAGE desse arquivo para que ele volte a um estágio de "em alteração"
+
+    Para isso, ao usar o GIT STATUS após o GIT ADD, vemos a opção "git reset HEAD "nome do arquivo" ".
+
+
+---STASH----
+
+Essa função serve para poder guardar alguma alteração para trabalhar depois, no caso de ter que resolver alguma outra tarefa antes:
+
+    1) Faz alguma alteração, NÃO ADICIONA, e executa GIT STASH.
+    2)depois quando voltar a trabalhar com aquela tarefa, 
+        - GIT STASH LIST - Para exibir os stashes que tem salvos
+        - GIT STASH APPLY "número do item" - GIT STASH DROP - para remover esse item da lista de stashes
+        - GIT STASH POP - já faz os dois itens ao mesmo tempo!
+
+
+---- VIAJANDO NO TEMPO ----
+
+Do mesmo jeito que eu posso fazer um checkout para um branch, eu posso fazer para um determinado ponto no tempo.
+Eu posso usar GIT CHECKOUT "hash de um commit" para dar voltar àquele ponto do projeto
+Se eu quiser fazer testes é só fazer commits a partir desse ponto
+Porem se quiser fazer alterações que sejam aplicadas no MASTER é preciso fazer um branch novo: GIT CHECKOUT -B "nome do novo branch"
+
+Para voltar pro estado normal é só fazer o Checkout para o MASTER
